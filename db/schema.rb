@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_124241) do
     t.string "name"
     t.integer "position"
     t.boolean "visible"
-    t.string "context_type", limit: 50
+    t.string "content_type", limit: 50
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

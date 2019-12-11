@@ -6,7 +6,7 @@ class CreateSections < ActiveRecord::Migration[6.0]
       t.string "name"
       t.integer "position"
       t.boolean "visible"
-      t.string "context_type", :limit => 50
+      t.string "content_type", :limit => 50
       t.text "content"
 
       t.timestamps
