@@ -21,7 +21,7 @@ class SectionsController < ApplicationController
         flash[:notice] = "Section created successfully"
         redirect_to(sections_path)
       else
-        render('new')
+        render("new")
       end
   end
 
@@ -35,7 +35,7 @@ class SectionsController < ApplicationController
       flash[:notice] = "Section updated successfully"
       redirect_to(section_path(@section))
     else
-      render('edit')
+      render("edit")
     end
   end
 

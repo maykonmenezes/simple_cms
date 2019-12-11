@@ -2,7 +2,7 @@
 <div class="sections index">
   <h2>Sections</h2>
 
-  <%= link_to("Add New Sections", new_section_path, :class => 'action new') %>
+  <%= link_to("Add New Sections", new_section_path, :class => "action new") %>
 
   <table class="listing" summary="Sections list">
     <tr class="header">
@@ -17,11 +17,11 @@
       <td><%= section.position %></td>
       <td><%= section.page_id %></td>
       <td><%= section.name %></td>
-      <td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
+      <td class="center"><%= status_tag(section.visible)%></td>
       <td class="actions">
-        <%= link_to("Show", section_path(section), :class => 'action show') %>
-        <%= link_to("Edit", edit_section_path(section), :class => 'action edit') %>
-        <%= link_to("Delete", delete_section_path(section), :class => 'action delete') %>
+        <%= link_to("Show", section_path(section), :class => "action show") %>
+        <%= link_to("Edit", edit_section_path(section), :class => "action edit") %>
+        <%= link_to("Delete", delete_section_path(section), :class => "action delete") %>
       </td>
     </tr>
     <% end %>

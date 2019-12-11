@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     if @page.save
       redirect_to(pages_path)
     else
-      render('new')
+      render("new")
     end
   end
 
@@ -33,7 +33,7 @@ class PagesController < ApplicationController
     if @page.update_attributes(page_params)
       redirect_to(page_path(@page))
     else
-      render('edit')
+      render("edit")
     end
   end
 
