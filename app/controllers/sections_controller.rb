@@ -1,18 +1,19 @@
 class SectionsController < ApplicationController
+
   def index
-    @sections = Sections.sorted
+    @sections = Section.sorted
   end
 
   def show
-    @section = Sections.find(params[:id])
+    @section = Section.find(params[:id])
   end
 
   def new
-    @section = Sections.new
+    @section = Section.new
   end
 
   def create
-      @section = Sections.new(section_params)
+      @section = Section.new(section_params)
 
       if @section.save
         flash[:notice] = "Section created successfully"
@@ -47,7 +48,9 @@ class SectionsController < ApplicationController
     redirect_to(sections_path)
   end
 
+private
+
   def section_params
-    params.require(:section).permit(:name, :position, :visible, :context_type, :content)
+    params.require(:section).permit(:page_id, :name, :position, :visible, :context_type, :content)
   end
 end

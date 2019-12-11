@@ -1,14 +1,14 @@
 class PagesController < ApplicationController
   def index
-    @pages = Pages.sorted
+    @pages = Page.sorted
   end
 
   def show
-    @page = Pages.find(params[:id])
+    @page = Page.find(params[:id])
   end
 
   def new
-    @page = Pages.new
+    @page = Page.new
   end
 
   def create
@@ -43,7 +43,9 @@ class PagesController < ApplicationController
     redirect_to(pages_path)
   end
 
+  private
+
   def page_params
-    params.require(:page).permit(:name, :position, :visible, :permalink)
+    params.require(:page).permit(:subject_id, :name, :position, :visible, :permalink)
   end
 end

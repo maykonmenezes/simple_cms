@@ -49,6 +49,8 @@ class SubjectsController < ApplicationController
     redirect_to(subjects_path)
   end
 
+  private
+
   def subject_params
     params.require(:subject).permit(:name, :position, :visible)
   end
