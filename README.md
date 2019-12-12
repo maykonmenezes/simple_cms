@@ -14,3 +14,4 @@ A Content Management System(CMS) made using Ruby on Rails for studies purposes.
     rails server
 
 ## Runnig tests
+    bundle exec rspec spec
