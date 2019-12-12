@@ -9,5 +9,13 @@ class Section < ApplicationRecord
   scope :sorted, lambda { order("position ASC") }
   scope :newest_first, lambda { where("created_at DESC") }
   scope :visible, lambda { |query| where("name LIKE ?", "%#{query}%") }
-  
+
+  CONTENT_TYPES = ["text", "HTML"]
+
+  validates :name, :presence => true,
+                  :length => { :maximum => 255}
+  validates :content_type, :inclusion => { :in => CONTENT_TYPES,
+    :message => "must be one of: #{CONTENT_TYPES.join(', ')}" }
+  validates :content, :presence => true
+
 end
