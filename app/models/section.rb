@@ -10,10 +10,12 @@ class Section < ApplicationRecord
   scope :newest_first, lambda { where("created_at DESC") }
   scope :visible, lambda { |query| where("name LIKE ?", "%#{query}%") }
 
-  validates_presence_of :name
-  validates_length_of :name, :maximum => 255
-  validates_inclusion_of :content_type, :in => CONTENT_TYPES,
-    :message => "must be one of: #{CONTENT_TYPES.join(', ')}"
-  validates_presence_of :content
+  CONTENT_TYPES = ["text", "HTML"]
+
+  validates :name, :presence => true,
+                  :length => { :maximum => 255}
+  validates :content_type, :inclusion => { :in => CONTENT_TYPES,
+    :message => "must be one of: #{CONTENT_TYPES.join(', ')}" }
+  validates :content, :presence => true
 
 end
