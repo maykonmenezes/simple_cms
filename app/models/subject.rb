@@ -8,4 +8,6 @@ class Subject < ApplicationRecord
   scope :newest_first, lambda { where("created_at DESC") }
   scope :visible, lambda { |query| where("name LIKE ?", "%#{query}%") }
 
+  validates_presence_of :name
+
 end
