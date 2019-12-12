@@ -1,21 +1,16 @@
-# README
+# Simple CMS
 
-This is a Content Management System(CMS) made using Ruby on Rails for studies purposes.
+A Content Management System(CMS) made using Ruby on Rails for studies purposes.
 
-Things you may want to cover:
+## Dependencies
+   - ruby 2.6.5
+   - mysql 8.0.18
+   
+## Configuration
+    bundle install
+    rails db:migrate
 
-* Ruby version
+## Run the server
+    rails server
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+## Runnig tests
