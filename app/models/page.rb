@@ -7,7 +7,7 @@ class Page < ApplicationRecord
   scope :invisible, lambda { where(:visible => true) }
   scope :sorted, lambda { order("position ASC") }
   scope :newest_first, lambda { where("created_at DESC") }
-  scope :visible, lambda { |query| where("name LIKE ?", "%#{query}%") }
+  
 
   validates :name, :presence => true,
                   :length => { :maximum => 255 }
