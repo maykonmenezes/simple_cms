@@ -1,5 +1,7 @@
 class Page < ApplicationRecord
 
+  acts_as_list :scope => :subject
+
   belongs_to :subject
   has_many :sections
 
@@ -7,7 +9,7 @@ class Page < ApplicationRecord
   scope :invisible, lambda { where(:visible => true) }
   scope :sorted, lambda { order("position ASC") }
   scope :newest_first, lambda { where("created_at DESC") }
-  
+
 
   validates :name, :presence => true,
                   :length => { :maximum => 255 }

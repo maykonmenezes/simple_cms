@@ -1,5 +1,7 @@
 class Section < ApplicationRecord
 
+  acts_as_list :scope => :subject
+
   belongs_to :page
   has_many :section_edits
   has_many :admin_users, :through => :section_edits
@@ -9,12 +11,12 @@ class Section < ApplicationRecord
   scope :sorted, lambda { order("position ASC") }
   scope :newest_first, lambda { where("created_at DESC") }
 
-  CONTENT_TYPES = ["text", "HTML"]
+  CONTENT_TYPES = ['text', 'HTML']
 
   validates :name, :presence => true,
-                  :length => { :maximum => 255}
-  validates :content_type, :inclusion => { :in => CONTENT_TYPES,
-    :message => "must be one of: #{CONTENT_TYPES.join(', ')}" }
+                   :length => { :maximum => 255}
+  # validates_inclusion_of :content_type, :in => CONTENT_TYPES,
+  #   :message => "must be one of: #{CONTENT_TYPES.join(', ')}"
   validates :content, :presence => true
 
 end
